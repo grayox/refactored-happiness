@@ -4,7 +4,6 @@ google-api-python-client==2.70.0
 google-auth-httplib2==0.1.0
 google-auth-oauthlib==0.5.2
 html2text==2020.1.16
-os
 pathlib
 Pillow==9.3.0
 praw==7.6.0
