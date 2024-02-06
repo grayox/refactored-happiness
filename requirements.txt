@@ -9,7 +9,6 @@ Pillow==9.3.0
 praw==7.6.0
 python-dotenv==0.21.0
 requests==2.28.1
-tenacity==8.0.1  
-textwrap
+tenacity==8.0.1
 urllib.request
 urllib3==1.26.13
