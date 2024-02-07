@@ -35,7 +35,7 @@ jobs:
         name: Jupyter Notebook Execution
         run: jupyter execute main.ipynb
         shell: bash
-        with:
+        env:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
           pixabay_api_key: ${{ secrets.PIXABAY_API_KEY }}
           wordpress_username: ${{ secrets.WORDPRESS_USERNAME }}
