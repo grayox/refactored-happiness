@@ -35,17 +35,17 @@ jobs:
         name: Jupyter Notebook Execution
         shell: bash
         env:
-          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
-          pixabay_api_key: ${{ secrets.PIXABAY_API_KEY }}
-          wordpress_username: ${{ secrets.WORDPRESS_USERNAME }}
-          wordpress_password: ${{ secrets.WORDPRESS_PASSWORD }}
-          wordpress_client_id: ${{ secrets.WORDPRESS_CLIENT_ID }}
-          wordpress_client_secret: ${{ secrets.WORDPRESS_CLIENT_SECRET }}
-          reddit_client_id: ${{ secrets.REDDIT_CLIENT_ID }}
-          reddit_client_secret: ${{ secrets.REDDIT_CLIENT_SECRET }}
-          reddit_user_agent: ${{ secrets.REDDIT_USER_AGENT }}
-          reddit_username: ${{ secrets.REDDIT_USERNAME }}
-          reddit_password: ${{ secrets.REDDIT_PASSWORD }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          WORDPRESS_USERNAME: ${{ secrets.WORDPRESS_USERNAME }}
+          WORDPRESS_PASSWORD: ${{ secrets.WORDPRESS_PASSWORD }}
+          WORDPRESS_CLIENT_ID: ${{ secrets.WORDPRESS_CLIENT_ID }}
+          WORDPRESS_CLIENT_SECRET: ${{ secrets.WORDPRESS_CLIENT_SECRET }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
         run: jupyter execute main.ipynb
 
  # Add new files in folder, commit along with other modified files, push
