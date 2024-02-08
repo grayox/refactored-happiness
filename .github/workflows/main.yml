@@ -26,10 +26,10 @@ jobs:
       - id: python
         name: Python Setup & Packages Installation
         uses: actions/setup-python@v2
-        run: pip install -r requirements.txt
         with:
           python-version: '3.9'
           cache: 'pip'
+      - run: pip install -r requirements.txt
 
       - id: jupyter 
         name: Jupyter Notebook Execution
