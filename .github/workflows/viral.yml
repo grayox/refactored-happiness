@@ -1,0 +1,69 @@
+# Publishes articles
+name: Publish
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Runs this workflow automatically on a schedule following the chrontab expression syntax
+  schedule:
+    - cron: '07 13 * * *'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - id: repo 
+        name: Repo Checkout
+        uses: actions/checkout@v2
+
+      - id: python
+        name: Python Setup & Packages Installation
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+
+      - id: jupyter 
+        name: Jupyter Notebook Execution
+        shell: bash
+        run: jupyter execute main.ipynb
+        env:
+          JOB_TYPE: VIRAL_CONTENT_CREATION
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          WORDPRESS_USERNAME: ${{ secrets.WORDPRESS_USERNAME }}
+          WORDPRESS_PASSWORD: ${{ secrets.WORDPRESS_PASSWORD }}
+          WORDPRESS_CLIENT_ID: ${{ secrets.WORDPRESS_CLIENT_ID }}
+          WORDPRESS_CLIENT_SECRET: ${{ secrets.WORDPRESS_CLIENT_SECRET }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+
+ # Add new files in folder, commit along with other modified files, push
+#     - id: commit
+#      name: Commit files
+#        run:
+#          git config --local user.name actions-user
+
+#          git config --local user.email "actions@github.com"
+
+#          git add *
+
+#          git commit -am "GH ACTION Headlines $(date)"
+
+#          git push origin main
+
+#        env:
+#          REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+
+#          username: github-actions
