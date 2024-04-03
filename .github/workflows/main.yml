@@ -36,6 +36,7 @@ jobs:
         shell: bash
         run: jupyter execute main.ipynb
         env:
+          JOB_TYPE: TOPIC_TREE
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           WORDPRESS_USERNAME: ${{ secrets.WORDPRESS_USERNAME }}
